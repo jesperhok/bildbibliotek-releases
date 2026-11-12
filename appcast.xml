@@ -4,6 +4,20 @@
     <title>Bildbibliotek – uppdateringar</title>
     <language>sv</language>
     <item>
+      <title>Bildbibliotek 0.2.2 – förbättrad sökning och bildorganisation</title>
+      <description><![CDATA[Förbättrad begreppssökning, lägg till fler bilder till ett sökord med ett klick, grupptaggning, favoriter, samlingar och stor förhandsgranskning med anteckningar.]]></description>
+      <sparkle:version>202</sparkle:version>
+      <sparkle:shortVersionString>0.2.2</sparkle:shortVersionString>
+      <sparkle:minimumSystemVersion>13.0</sparkle:minimumSystemVersion>
+      <enclosure
+        url="https://raw.githubusercontent.com/jesperhok/bildbibliotek-releases/main/Bildbibliotek-0.2.2.zip"
+        sparkle:version="202"
+        sparkle:shortVersionString="0.2.2"
+        sparkle:edSignature="QMLV+jtE3tYAiGwv182OL+5OqY062TgXrc236qp9kx88DtO0yUW+m9tlpHDiCTHWctkyolnX9DESrZGajwh+BA=="
+        length="1493143"
+        type="application/octet-stream"/>
+    </item>
+    <item>
       <title>Bildbibliotek 0.2.1 – egna sökord för bilder</title>
       <description><![CDATA[Du kan nu högerklicka på en bild och lägga till egna sökord för sökningen.]]></description>
       <sparkle:version>201</sparkle:version>
