@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rss version="2.0" xmlns:sparkle="http://www.andymatuschak.org/xml-namespaces/sparkle">
+  <channel>
+    <title>Bildbibliotek – uppdateringar</title>
+    <language>sv</language>
+    <item>
+      <title>Bildbibliotek 0.2.1 – egna sökord för bilder</title>
+      <description><![CDATA[Du kan nu högerklicka på en bild och lägga till egna sökord för sökningen.]]></description>
+      <sparkle:version>201</sparkle:version>
+      <sparkle:shortVersionString>0.2.1</sparkle:shortVersionString>
+      <sparkle:minimumSystemVersion>13.0</sparkle:minimumSystemVersion>
+      <enclosure
+        url="https://raw.githubusercontent.com/jesperhok/bildbibliotek-releases/main/Bildbibliotek-0.2.1.zip"
+        sparkle:version="201"
+        sparkle:shortVersionString="0.2.1"
+        sparkle:edSignature="/gMdcfINz1cDB/pJ1NM3RDxhrBPk/1pwoTDLNgIEpSD4d+YgBMgEDRdS6TdEpTdNk1dXb6u9Ixhvm4PQtFqBBQ=="
+        length="1310792"
+        type="application/octet-stream"/>
+    </item>
+  </channel>
+</rss>
