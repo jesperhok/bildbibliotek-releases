@@ -1,0 +1,52 @@
+name: Distribution safety checks
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Check distributable files
+        run: |
+          python3 - <<'PY'
+          import os, pathlib, re, sys, xml.etree.ElementTree as ET
+          root=pathlib.Path(".")
+          files=[p for p in root.rglob("*") if p.is_file() and ".git" not in p.parts]
+          forbidden=re.compile(r"(?i)(\\.swift$|\\.p12$|\\.pem$|\\.key$|index\\.json$|\\.pdf$|UNSIGNED|private|secret)")
+          errors=[]
+          for p in files:
+              rel=str(p)
+              if forbidden.search(rel):
+                  errors.append(f"Forbidden file: {rel}")
+              if p.suffix.lower()==".zip" and not re.fullmatch(r"Bildbibliotek-[0-9]+[.][0-9]+[.][0-9]+[.]zip",p.name):
+                  errors.append(f"Unexpected archive name: {rel}")
+          feed=root/"appcast.xml"
+          if feed.exists():
+              try:
+                  tree=ET.parse(feed)
+                  items=tree.findall(".//item")
+                  if not items: errors.append("appcast.xml contains no release items")
+                  for item in items:
+                      enclosure=item.find("enclosure")
+                      if enclosure is None:
+                          errors.append("Missing enclosure")
+                          continue
+                      sig=enclosure.get("{http://www.andymatuschak.org/xml-namespaces/sparkle}edSignature")
+                      url=enclosure.get("url","")
+                      if not sig: errors.append("Unsigned appcast item")
+                      if not url.startswith("https://"): errors.append("Non-HTTPS update archive URL")
+              except Exception as exc:
+                  errors.append(f"Invalid appcast.xml: {exc}")
+          if errors:
+              print("\\n".join(errors),file=sys.stderr)
+              sys.exit(1)
+          print("Basic distribution checks passed. Cryptographic verification and Gatekeeper still require separate tests.")
+          PY
