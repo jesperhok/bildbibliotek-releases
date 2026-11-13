@@ -4,6 +4,19 @@
     <title>Bildbibliotek – uppdateringar</title>
     <language>sv</language>
     <item>
+      <title>Bildbibliotek 0.3.3</title>
+      <description>Förbättringar och nya funktioner i Bildbibliotek 0.3.3.</description>
+      <sparkle:version>303</sparkle:version>
+      <sparkle:shortVersionString>0.3.3</sparkle:shortVersionString>
+      <sparkle:minimumSystemVersion>13.0</sparkle:minimumSystemVersion>
+      <enclosure url="https://raw.githubusercontent.com/jesperhok/bildbibliotek-releases/main/Bildbibliotek-0.3.3.zip"
+                 sparkle:version="303"
+                 sparkle:shortVersionString="0.3.3"
+                 sparkle:edSignature="POkmM0GO8EKIzbfoe1zhlhX7WRSOGWrBUgfvBXacIVs4wZ3Hh4IxC3uARi42MSwIQ6JGi6sjFVG8vMVYIHqdAw=="
+                 length="1818204"
+                 type="application/octet-stream"/>
+    </item>
+    <item>
       <title>Bildbibliotek 0.3.2</title>
       <description>Förbättringar och nya funktioner i Bildbibliotek 0.3.2.</description>
       <sparkle:version>302</sparkle:version>
